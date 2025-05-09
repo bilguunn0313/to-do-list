@@ -1,7 +1,6 @@
 import styles from "../styles/Home.module.css";
 
 export const Task = ({ task, removeTaskById, toggleCheck }) => {
-  const onToggle = () => {};
   return (
     <div className={styles.innerContainer}>
       <div className={styles.task}>
@@ -16,7 +15,7 @@ export const Task = ({ task, removeTaskById, toggleCheck }) => {
             style={{ textDecoration: task.isCompleted ? "line-through" : "" }}
             className={styles.blah}
           >
-            {task.taskName}{" "}
+            {task.taskName}
           </p>
         </div>
         <button

@@ -33,6 +33,8 @@ export const Home = () => {
     }
   });
 
+  const clearTask = taskList.filter((clear) => clear.isCompleted === true);
+
   console.log(taskList);
   return (
     <div className={styles.container}>
@@ -41,8 +43,7 @@ export const Home = () => {
       <div>
         <Form setTaskList={setTaskList} taskList={taskList} />
 
-        <Filter setFilter={setFilter} />
-        {taskList.map((task, index) => (
+        {filteredTask.map((task, index) => (
           <Task
             key={index}
             task={task}
@@ -50,6 +51,12 @@ export const Home = () => {
             toggleCheck={toggleCheck}
           />
         ))}
+        {}
+        <Filter
+          setFilter={setFilter}
+          clearTask={clearTask}
+          taskList={taskList}
+        />
       </div>
     </div>
   );

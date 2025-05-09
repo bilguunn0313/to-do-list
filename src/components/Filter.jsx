@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css";
 
-export const Filter = ({ setFilter }) => {
+export const Filter = ({ setFilter, taskList, clearTask }) => {
   const filterOptions = ["all", "completed", "active"];
   return (
     <div className={styles.container}>
@@ -20,7 +20,12 @@ export const Filter = ({ setFilter }) => {
 
         <div className={styles.taskResult}>
           <p>0 of 2 complete</p>
-          <button className={styles.clearButton}>Clear Completed</button>
+          <button
+            className={styles.clearButton}
+            onClick={() => clearTask(setFilter.isCompleted)}
+          >
+            Clear Completed
+          </button>
         </div>
         <div className={styles.footer}>
           <span>Powered By </span>

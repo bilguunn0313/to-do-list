@@ -1,7 +1,7 @@
 import styles from "../styles/Home.module.css";
 
-export const Task = ({ task, removeTaskById, handleComp }) => {
-  const isComplete = () => {};
+export const Task = ({ task, removeTaskById, toggleCheck }) => {
+  const onToggle = () => {};
   return (
     <div className={styles.innerContainer}>
       <div className={styles.task}>
@@ -10,9 +10,14 @@ export const Task = ({ task, removeTaskById, handleComp }) => {
             type="checkbox"
             className={styles.checkBox}
             checked={task.isCompleted}
-            onChange={() => handleComp(task.id)}
+            onChange={() => toggleCheck(task.id)}
           />
-          <p className={styles.blah}>{task.taskName}</p>
+          <p
+            style={{ textDecoration: task.isCompleted ? "line-through" : "" }}
+            className={styles.blah}
+          >
+            {task.taskName}{" "}
+          </p>
         </div>
         <button
           className={styles.deleteButton}

@@ -1,13 +1,21 @@
 import styles from "../styles/Home.module.css";
 
-export const List = () => {
+export const Filter = ({ setFilter }) => {
+  const filterOptions = ["all", "completed", "active"];
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.filterButtons}>
-          <button className={styles.allButton}>All</button>
-          <button className={styles.activeButton}>Acitve</button>
-          <button className={styles.compButton}>Completed</button>
+          {filterOptions.map((filter, index) => (
+            <div key={index}>
+              <button
+                className={styles.allButton}
+                onClick={() => setFilter(filter)}
+              >
+                {filter}
+              </button>
+            </div>
+          ))}
         </div>
 
         <div className={styles.taskResult}>
